@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
- */
-
 package pdc_project.czylfg_pdc_project;
+
+import java.util.Scanner;
 
 /**
  *
@@ -12,6 +9,15 @@ package pdc_project.czylfg_pdc_project;
 public class CZYLFG_PDC_Project {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Welcome to the CZYLFG inventory management system!\n");
+        System.out.println("What do you want to do?\n");
+        System.out.println("A: Check our inventory levels!");
+        System.out.println("B: Importing Status");
+        System.out.println("C: Outgoing Orders");
+        System.out.println("D: Exit");
+        
+        Scanner scan = new Scanner(System.in);
+        
+        
     }
 }

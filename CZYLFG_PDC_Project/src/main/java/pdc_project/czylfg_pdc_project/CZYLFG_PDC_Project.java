@@ -1,6 +1,6 @@
 package pdc_project.czylfg_pdc_project;
 
-import java.util.Scanner;
+import java.util.*;
 
 /**
  *

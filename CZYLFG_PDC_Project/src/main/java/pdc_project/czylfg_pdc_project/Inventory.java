@@ -2,10 +2,12 @@ package pdc_project.czylfg_pdc_project;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This is where we create the inventory. Take in text files and after all the
@@ -55,13 +57,20 @@ public class Inventory {
     
     public void updateInventory(HashMap<Integer, Integer> hmap)
     {
+        File currentFile = new File("./dbresources/current_inv.txt");
+        currentFile.delete();
+        
         BufferedWriter bw;
         
-        try 
-        {
-          bw = new BufferedWriter(new FileWriter("./dbresources/current_inv.txt"));
-          
-          
+        try {
+           bw = new BufferedWriter(new FileWriter("./dbresources/current_inv.txt"));
+           
+           for (Map.Entry<Integer, Integer> entry : hmap.entrySet()) {
+ 
+                bw.write(entry.getKey() + " "+ entry.getValue());
+                bw.newLine();
+            }
+           bw.flush();
         } 
         catch (IOException ex) 
         {

@@ -78,6 +78,17 @@ public class TestMain {
             String value = inv.get(id).toString();
             System.out.println(key + " " + value);
         }
+        
+        inv.replace(1, 6000);
+        inv.replace(3, 950);
+        inv.replace(6, 10);
+        fruitInv.updateInventory(inv);
+        
+        
+        
+        
+//        HashMap<Integer, Integer> newMap = new HashMap<>();
+//        newMap
     }
 }
 

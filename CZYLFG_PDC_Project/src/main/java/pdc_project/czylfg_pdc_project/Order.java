@@ -90,10 +90,12 @@ public class Order {
         }
         return false;
     }
+    
+    public void printOrder(String orderedFruit, String quantity)
+    {
+        System.out.println("Fruit: "+orderedFruit+"\n"
+                            +"Quantity: "+quantity);
+    }
 }
 
-//    public static HashMap<String, Integer> readOrders()
-//    {
-//        
-//    }
 

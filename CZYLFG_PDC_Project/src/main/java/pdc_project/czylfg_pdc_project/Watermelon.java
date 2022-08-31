@@ -8,8 +8,8 @@ public class Watermelon extends Fruit{
     private final static String FRUITNAME = "Watermelon";
     private final static  int FRUITID = 4;
     
-    public Watermelon(int inventoryNum)
+    public Watermelon()
     {
-        super(FRUITNAME, FRUITID, inventoryNum);
+        super(FRUITNAME, FRUITID);
     }
 }

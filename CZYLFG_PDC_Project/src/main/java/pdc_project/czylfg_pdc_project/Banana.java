@@ -8,8 +8,8 @@ public class Banana extends Fruit{
     private final static String FRUITNAME = "Banana";
     private final static  int FRUITID = 3;
     
-    public Banana(int inventoryNum)
+    public Banana()
     {
-        super(FRUITNAME, FRUITID, inventoryNum);
+        super(FRUITNAME, FRUITID);
     }
 }

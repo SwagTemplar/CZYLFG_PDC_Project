@@ -9,11 +9,11 @@ public class Fruit {
     protected String fruitName;
     protected int fruitID;
     
-    public Fruit(String name, int id, int inventoryNum)
+    public Fruit(String name, int id)
     {
         this.fruitName = name;
         this.fruitID = id;
-        this.inventoryNum = inventoryNum;
+        this.inventoryNum = 0;
     }
     
     public String getFruitName()

@@ -10,10 +10,52 @@ public class CZYLFG_PDC_Project {
 
     public static void main(String[] args) {
         System.out.println("Welcome to the CZYLFG inventory management system!\n");
+        
+        Fruit galaApple = new GalaApple();
+        Fruit grannyApple = new GrannySmithApple();
+        Fruit mango = new Mango();
+        Fruit orange = new Orange();
+        Fruit banana = new Banana();
+        Fruit watermelon = new Watermelon();
+        
+        Inventory fruitInv = new Inventory();
     
         boolean run = true;
         while(run)
         {
+            HashMap<Integer, Integer> inv = fruitInv.readInventory();
+            
+            for(Integer key: inv.keySet()) 
+            {
+                if (key.equals(galaApple.fruitID))
+                {
+                    galaApple.setInventoryNum(inv.get(key));
+                }
+                else if (key.equals(grannyApple.fruitID))
+                {
+                    grannyApple.setInventoryNum(inv.get(key));
+                }
+                else if (key.equals(mango.fruitID))
+                {
+                    mango.setInventoryNum(inv.get(key));
+                }
+                else if (key.equals(orange.fruitID))
+                {
+                    orange.setInventoryNum(inv.get(key));
+                }
+                else if (key.equals(banana.fruitID))
+                {
+                    banana.setInventoryNum(inv.get(key));
+                }
+                else if (key.equals(watermelon.fruitID))
+                {
+                    watermelon.setInventoryNum(inv.get(key));
+                }
+                
+            }
+
+            
+            
             System.out.println("What do you want to do?\n");
             System.out.println("A: Check our inventory levels!");
             System.out.println("B: Importing Status");

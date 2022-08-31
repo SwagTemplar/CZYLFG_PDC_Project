@@ -26,6 +26,7 @@ public class CZYLFG_PDC_Project {
         boolean run = true;
         while (run) {
             HashMap<Integer, Integer> inv = fruitInv.readInventory();
+            HashMap<Integer, Fruit> orderMap = orderObj.getOrder();
 
             for (Integer key : inv.keySet()) {
                 if (key.equals(galaApple.fruitID)) {
@@ -50,7 +51,8 @@ public class CZYLFG_PDC_Project {
             System.out.println("D: Exit");
 
             Scanner scan = new Scanner(System.in);
-
+            System.out.println();
+            
             Character menuInput = scan.next().charAt(0);
 
             switch (Character.toLowerCase(menuInput)) {
@@ -60,7 +62,6 @@ public class CZYLFG_PDC_Project {
                         System.out.println("Name: " + fruitArr[i].getFruitName() + "\n"
                                 + "Quantity: " + fruitArr[i].getInventoryNum() + "\n"
                                 + "Fruit ID: " + fruitArr[i].getFruitID() + "\n");
-
                     }
                     break;
 
@@ -69,9 +70,7 @@ public class CZYLFG_PDC_Project {
                     break;
 
                 case 'c':
-                    boolean isValid = true;
-                    while(isValid){ orderObj.Order(fruitArr);
-                    }
+                    orderObj.readOrder();
                     
                     break;
 
@@ -83,6 +82,8 @@ public class CZYLFG_PDC_Project {
                     System.out.println("Invalid Input");
                     break;
             }
+            
+            scan.close();
         }
     }
 }

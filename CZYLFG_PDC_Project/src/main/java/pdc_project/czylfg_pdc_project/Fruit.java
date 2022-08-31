@@ -28,9 +28,19 @@ public class Fruit {
         return this.fruitName;
     }
     
+    public void setFruitName(String name)
+    {
+        this.fruitName = name;
+    }
+    
     public int getFruitID()
     {
         return this.fruitID;
+    }
+    
+    public void setFruitID(int ID)
+    {
+        this.fruitID = ID;
     }
     
     public void setInventoryNum(int num)     

@@ -55,6 +55,7 @@ public class Inventory {
         return this.inventory;
     }
     
+    
     public void updateInventory(HashMap<Integer, Integer> hmap)
     {
         File currentFile = new File("./dbresources/current_inv.txt");
@@ -75,6 +76,16 @@ public class Inventory {
         catch (IOException ex) 
         {
             System.err.println("IOException Error: " + ex.getMessage());
+        }
+    }
+    
+    public void printInv()
+    {
+        for (Integer id: this.inventory.keySet()) 
+        {
+            String key = id.toString();
+            String value = this.inventory.get(id).toString();
+            System.out.println(key + " " + value);
         }
     }
 }

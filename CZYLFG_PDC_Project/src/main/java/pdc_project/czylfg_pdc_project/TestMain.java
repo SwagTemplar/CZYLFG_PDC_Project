@@ -72,17 +72,15 @@ public class TestMain {
         Inventory fruitInv = new Inventory();
         HashMap<Integer, Integer> inv = fruitInv.readInventory();
         
-        for (Integer id: inv.keySet()) 
-        {
-            String key = id.toString();
-            String value = inv.get(id).toString();
-            System.out.println(key + " " + value);
-        }
+        fruitInv.printInv();
         
-        inv.replace(1, 6000);
-        inv.replace(3, 950);
-        inv.replace(6, 10);
+        inv.replace(1, 1000);
+        inv.replace(3, 1950);
+        inv.replace(6, 1110);
+        
         fruitInv.updateInventory(inv);
+        
+        fruitInv.printInv();
         
         
         

@@ -16,32 +16,26 @@ import java.util.Scanner;
 public class Order {
 
     public void Order() {
-        char userInput = ' ';
 
         String itemName = null;
-
         String itemQuant = null;
-
+        String userInput = null;
+        
         try {
-
-            Scanner sc = new Scanner(System.in);
 
             boolean loop = true;
             while (loop) {
-                String userExit = sc.nextLine();
-                if (userExit.trim().equalsIgnoreCase("x")) {
-                    System.out.println("Back to menu");
-                    System.exit(0);
-                }
-                BufferedReader readIn = new BufferedReader(new InputStreamReader(System.in));
 
                 System.out.println("Enter the fruit you want to order");
+
+                BufferedReader readIn = new BufferedReader(new InputStreamReader(System.in));
+
                 itemName = readIn.readLine();
 
                 System.out.println("Enter the quantity you want to order");
                 itemQuant = readIn.readLine();
 
-                System.out.println("You are ordering: " + itemQuant + " " + itemName);
+                System.out.println("You are ordering: " + itemQuant + " " + itemName + "('s)");
 
                 PrintStream printOut = new PrintStream(new FileOutputStream("./dbresources/Send_inv.txt", true), true);
 
@@ -49,11 +43,21 @@ public class Order {
                 printOut.println(itemQuant);
 
                 printOut.close();
-                readIn.close();
 
-                if (userInput == 'E') {
+                System.out.println();
+
+                System.out.println("Type E to exit to Menu");
+                System.out.println("Or");
+                System.out.println("Type C to continue ordering");
+
+                userInput = readIn.readLine();
+
+                if (userInput.equals("E")) {
                     loop = false;
+                } else if (userInput.equals("C")) {
+                    continue;
                 }
+                readIn.close();
             }
 
         } catch (IOException e) {

@@ -24,14 +24,16 @@ public class TestMain {
         String itemQuant = null;
 
         String userInput = null;
+
         try {
+            BufferedReader readIn;
 
             boolean loop = true;
-            while (loop) {
+            do {
 
                 System.out.println("Enter the fruit you want to order");
 
-                BufferedReader readIn = new BufferedReader(new InputStreamReader(System.in));
+                readIn = new BufferedReader(new InputStreamReader(System.in));
 
                 itemName = readIn.readLine();
 
@@ -46,7 +48,6 @@ public class TestMain {
                 printOut.println(itemQuant);
 
                 printOut.close();
-                readIn.close();
 
                 System.out.println();
 
@@ -54,16 +55,15 @@ public class TestMain {
                 System.out.println("Or");
                 System.out.println("Type C to continue ordering");
 
-                BufferedReader userDecision = new BufferedReader(new InputStreamReader(System.in));
-                userInput = userDecision.readLine();
+                userInput = readIn.readLine();
 
-                if (userInput.equals("E")) {
-                    loop = false;
-                } else if (userInput.equals("C")) {
+                if (userInput.equals("C")) {
                     loop = true;
+                } else if (userInput.equals("E")) {
+                    break;
                 }
-                userDecision.close();
-            }
+            } while (loop);
+            readIn.close();
 
         } catch (IOException e) {
             System.out.println("Error reading from file ");

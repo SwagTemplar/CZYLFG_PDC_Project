@@ -16,6 +16,8 @@ import java.util.Scanner;
 public class Order {
 
     public void Order() {
+        char userInput = ' ';
+
         String itemName = null;
 
         String itemQuant = null;
@@ -24,8 +26,8 @@ public class Order {
 
             Scanner sc = new Scanner(System.in);
 
-            boolean isValid = false;
-            while (!isValid) {
+            boolean loop = true;
+            while (loop) {
                 String userExit = sc.nextLine();
                 if (userExit.trim().equalsIgnoreCase("x")) {
                     System.out.println("Back to menu");
@@ -48,6 +50,10 @@ public class Order {
 
                 printOut.close();
                 readIn.close();
+
+                if (userInput == 'E') {
+                    loop = false;
+                }
             }
 
         } catch (IOException e) {

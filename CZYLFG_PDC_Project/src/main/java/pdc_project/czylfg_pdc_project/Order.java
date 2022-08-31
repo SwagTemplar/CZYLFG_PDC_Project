@@ -77,6 +77,19 @@ public class Order {
 
         }
     }
+    
+    
+    public boolean checkAvailability(Fruit fruit, int quantityOrdered, HashMap<Integer, Integer> hmap)
+    {
+        for(Integer key: hmap.keySet()) 
+        {
+            if (key.equals(fruit.fruitID) && fruit.getInventoryNum() > quantityOrdered)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 //    public static HashMap<String, Integer> readOrders()

@@ -15,31 +15,39 @@ import java.util.Scanner;
  */
 public class Order {
 
-    public void Order() {
+    public void Order(Fruit[] fruitArr) {
 
-        String itemName = null;
+        String itemID = null;
         String itemQuant = null;
         String userInput = null;
-        
+
+        for (int i = 0; i < 6; i++) {
+            System.out.println("Name: " + fruitArr[i].getFruitName() + "\n"
+                    + "Quantity: " + fruitArr[i].getInventoryNum() + "\n"
+                    + "Fruit ID: " + fruitArr[i].getFruitID() + "\n");
+
+        }
+
         try {
+            BufferedReader readIn;
 
             boolean loop = true;
-            while (loop) {
+            do {
 
-                System.out.println("Enter the fruit you want to order");
+                System.out.println("Enter the fruit ID you want to order");
 
-                BufferedReader readIn = new BufferedReader(new InputStreamReader(System.in));
+                readIn = new BufferedReader(new InputStreamReader(System.in));
 
-                itemName = readIn.readLine();
+                itemID = readIn.readLine();
 
                 System.out.println("Enter the quantity you want to order");
                 itemQuant = readIn.readLine();
 
-                System.out.println("You are ordering: " + itemQuant + " " + itemName + "('s)");
+                System.out.println("You are ordering: " + itemQuant + " " + itemID + "('s)");
 
                 PrintStream printOut = new PrintStream(new FileOutputStream("./dbresources/Send_inv.txt", true), true);
 
-                printOut.println(itemName);
+                printOut.println(itemID);
                 printOut.println(itemQuant);
 
                 printOut.close();
@@ -52,54 +60,32 @@ public class Order {
 
                 userInput = readIn.readLine();
 
-                if (userInput.equals("E")) {
-                    loop = false;
-                } else if (userInput.equals("C")) {
-                    continue;
+                if (userInput.equals("C")) {
+                    loop = true;
+                } else if (userInput.equals("E")) {
+                    break;
                 }
-                readIn.close();
-            }
+            } while (loop);
+            readIn.close();
 
         } catch (IOException e) {
             System.out.println("Error reading from file ");
 
         }
-        //// kisoon this is just a tester method so it'll print the line and what number the line is, 
-        //// it also sets it so when printing the lines they start at 0 but it wont push them in the doc to different lines.
-        try {
-            LineNumberReader readingInv = new LineNumberReader(new FileReader("./dbresources/Send_inv.txt"));
 
-            readingInv.setLineNumber(0);
-
-            String line = null;
-            while ((line = readingInv.readLine()) != null) {
-                System.out.println("Line " + readingInv.getLineNumber() + ": " + line);
-            }
-
-        } catch (IOException e) {
-            System.out.println("Error reading from file ");
-
-        }
     }
-    
-    
-    public boolean checkAvailability(Fruit fruit, int quantityOrdered, HashMap<Integer, Integer> hmap)
-    {
-        for(Integer key: hmap.keySet()) 
-        {
-            if (key.equals(fruit.fruitID) && fruit.getInventoryNum() >= quantityOrdered)
-            {
+
+    public boolean checkAvailability(Fruit fruit, int quantityOrdered, HashMap<Integer, Integer> hmap) {
+        for (Integer key : hmap.keySet()) {
+            if (key.equals(fruit.fruitID) && fruit.getInventoryNum() >= quantityOrdered) {
                 return true;
             }
         }
         return false;
     }
-    
-    public void printOrder(String orderedFruit, String quantity)
-    {
-        System.out.println("Fruit: "+orderedFruit+"\n"
-                            +"Quantity: "+quantity);
+
+    public void printOrder(int itemID, String quantity) {
+        System.out.println("Fruit ID: " + itemID + "\n"
+                + "Quantity: " + quantity);
     }
 }
-
-

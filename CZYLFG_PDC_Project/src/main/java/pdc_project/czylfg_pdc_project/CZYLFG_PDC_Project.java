@@ -51,11 +51,8 @@ public class CZYLFG_PDC_Project {
                 {
                     watermelon.setInventoryNum(inv.get(key));
                 }
-                
             }
-
-            
-            
+     
             System.out.println("What do you want to do?\n");
             System.out.println("A: Check our inventory levels!");
             System.out.println("B: Importing Status");
@@ -88,7 +85,5 @@ public class CZYLFG_PDC_Project {
                     break;
             }
         }
-        
-        
     }
 }

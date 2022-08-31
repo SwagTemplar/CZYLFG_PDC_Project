@@ -83,7 +83,7 @@ public class Order {
     {
         for(Integer key: hmap.keySet()) 
         {
-            if (key.equals(fruit.fruitID) && fruit.getInventoryNum() > quantityOrdered)
+            if (key.equals(fruit.fruitID) && fruit.getInventoryNum() >= quantityOrdered)
             {
                 return true;
             }

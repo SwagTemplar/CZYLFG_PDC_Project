@@ -10,20 +10,6 @@ import java.util.*;
 public class TestMain {
 
     public static void main(String[] args) {
-        Fruit apple1 = new GalaApple(1000);
-        System.out.println("Name: " + apple1.fruitName + " ID: " + apple1.fruitID);
-        System.out.println("Type of Apple: " + apple1.getFruitName());
-        System.out.println("Number of Stock: " + apple1.getInventoryNum());
-
-        apple1.setInventoryNum(69);
-        System.out.println("Number of Stock: " + apple1.getInventoryNum());
-        apple1.increaseStock(1000);
-        System.out.println("Number of Stock: " + apple1.getInventoryNum());
-        apple1.decreaseStock(68);
-        System.out.println("Number of Stock: " + apple1.getInventoryNum());
-
-        Banana b = new Banana(1000);
-        System.out.println("Name: " + b.fruitName + " ID: " + b.fruitID);
 
 //        Inventory obj = new Inventory();
         Order orderObj = new Order();
@@ -70,16 +56,18 @@ public class TestMain {
                 if (sc.hasNextLine()) {
                    userInput = sc.next().charAt(0);
                 }
-                while (loop);
-                if (Character.toLowerCase(userInput) == 'e') {
-                    loop = false;
-                } else if (Character.toLowerCase(userInput) == 'c') {
-                    loop = true;
-                }
+                while (loop)
+                {
+                    if (Character.toLowerCase(userInput) == 'e') {
+                        loop = false;
+                    } else if (Character.toLowerCase(userInput) == 'c') {
+                        loop = true;
+                    }
                 }
             }
-}
-        } catch (IOException e) {
+        } 
+            }
+        catch (IOException e) {
             System.out.println("Error reading from file ");
 
         }

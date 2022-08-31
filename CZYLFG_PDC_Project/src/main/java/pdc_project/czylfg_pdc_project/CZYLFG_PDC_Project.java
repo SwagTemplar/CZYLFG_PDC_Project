@@ -1,6 +1,11 @@
 package pdc_project.czylfg_pdc_project;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,11 +27,13 @@ public class CZYLFG_PDC_Project {
 
         Order orderObj = new Order();
         Inventory fruitInv = new Inventory();
+        Scanner scan = new Scanner(System.in);
 
         boolean run = true;
         while (run) {
             HashMap<Integer, Integer> inv = fruitInv.readInventory();
             HashMap<Integer, Fruit> orderMap = orderObj.getOrder();
+            Order newOrder = new Order(orderMap);
 
             for (Integer key : inv.keySet()) {
                 if (key.equals(galaApple.fruitID)) {
@@ -50,40 +57,48 @@ public class CZYLFG_PDC_Project {
             System.out.println("C: Create Order");
             System.out.println("D: Exit");
 
-            Scanner scan = new Scanner(System.in);
             System.out.println();
-            
-            Character menuInput = scan.next().charAt(0);
 
-            switch (Character.toLowerCase(menuInput)) {
-                case 'a':
+            BufferedReader menuInput;
+            System.out.println();
+            menuInput = new BufferedReader(new InputStreamReader(System.in));
 
-                    for (int i = 0; i < 6; i++) {
-                        System.out.println("Name: " + fruitArr[i].getFruitName() + "\n"
-                                + "Quantity: " + fruitArr[i].getInventoryNum() + "\n"
-                                + "Fruit ID: " + fruitArr[i].getFruitID() + "\n");
-                    }
-                    break;
-
-                case 'b':
-
-                    break;
-
-                case 'c':
-                    orderObj.readOrder();
-                    
-                    break;
-
-                case 'd':
-                    System.exit(0);
-                    break;
-
-                default:
-                    System.out.println("Invalid Input");
-                    break;
+            Character mi = ' ';
+            try {
+                mi = menuInput.readLine().charAt(0);
+                menuInput.close();
+            } catch (IOException ex) {
+                Logger.getLogger(CZYLFG_PDC_Project.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            scan.close();
+
+                switch (Character.toLowerCase(mi)) {
+                    case 'a':
+
+                        for (int i = 0; i < 6; i++) {
+                            System.out.println("Name: " + fruitArr[i].getFruitName() + "\n"
+                                    + "Quantity: " + fruitArr[i].getInventoryNum() + "\n"
+                                    + "Fruit ID: " + fruitArr[i].getFruitID() + "\n");
+                        }
+                        break;
+
+                    case 'b':
+
+                        break;
+
+                    case 'c':
+                        newOrder.readOrder();
+
+                        break;
+
+                    case 'd':
+                        System.exit(0);
+                        break;
+
+                    default:
+                        System.out.println("Invalid Input");
+                        break;
+                }
         }
+//        scan.close();
     }
 }

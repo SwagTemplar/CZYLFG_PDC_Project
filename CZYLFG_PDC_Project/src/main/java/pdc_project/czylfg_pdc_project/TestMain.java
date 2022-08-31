@@ -9,6 +9,8 @@ import java.util.*;
  */
 public class TestMain {
 
+    public final static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
 
 //        Inventory obj = new Inventory();
@@ -21,12 +23,11 @@ public class TestMain {
 
         String itemQuant = null;
 
+        String userInput = null;
         try {
 
             boolean loop = true;
             while (loop) {
-                Scanner sc = new Scanner(System.in);
-                char userInput = ' ';
 
                 System.out.println("Enter the fruit you want to order");
 
@@ -49,25 +50,22 @@ public class TestMain {
 
                 System.out.println();
 
-                do{
                 System.out.println("Type E to exit to Menu");
                 System.out.println("Or");
                 System.out.println("Type C to continue ordering");
-                if (sc.hasNextLine()) {
-                   userInput = sc.next().charAt(0);
+
+                BufferedReader userDecision = new BufferedReader(new InputStreamReader(System.in));
+                userInput = userDecision.readLine();
+
+                if (userInput.equals("E")) {
+                    loop = false;
+                } else if (userInput.equals("C")) {
+                    loop = true;
                 }
-                while (loop)
-                {
-                    if (Character.toLowerCase(userInput) == 'e') {
-                        loop = false;
-                    } else if (Character.toLowerCase(userInput) == 'c') {
-                        loop = true;
-                    }
-                }
+                userDecision.close();
             }
-        } 
-            }
-        catch (IOException e) {
+
+        } catch (IOException e) {
             System.out.println("Error reading from file ");
 
         }
@@ -88,24 +86,6 @@ public class TestMain {
 //
 //        }
 
-        Inventory fruitInv = new Inventory();
-        HashMap<Integer, Integer> inv = fruitInv.readInventory();
-        
-        fruitInv.printInv();
-        
-        inv.replace(1, 1000);
-        inv.replace(3, 1950);
-        inv.replace(6, 1110);
-        
-        fruitInv.updateInventory(inv);
-        
-        fruitInv.printInv();
-        
-        
-        
-        
-//        HashMap<Integer, Integer> newMap = new HashMap<>();
-//        newMap
     }
 }
 

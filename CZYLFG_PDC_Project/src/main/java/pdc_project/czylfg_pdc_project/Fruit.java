@@ -9,6 +9,13 @@ public class Fruit {
     protected String fruitName;
     protected int fruitID;
     
+    public Fruit()
+    {
+        this.inventoryNum = 0;
+        this.fruitName = null;
+        this.fruitID = 0;
+    }
+    
     public Fruit(String name, int id)
     {
         this.fruitName = name;
@@ -19,6 +26,11 @@ public class Fruit {
     public String getFruitName()
     {
         return this.fruitName;
+    }
+    
+    public int getFruitID()
+    {
+        return this.fruitID;
     }
     
     public void setInventoryNum(int num)     

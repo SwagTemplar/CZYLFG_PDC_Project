@@ -10,6 +10,7 @@ public class CZYLFG_PDC_Project {
 
     public static void main(String[] args) {
         System.out.println("Welcome to the CZYLFG inventory management system!\n");
+       
         
         Fruit galaApple = new GalaApple();
         Fruit grannyApple = new GrannySmithApple();
@@ -17,6 +18,9 @@ public class CZYLFG_PDC_Project {
         Fruit orange = new Orange();
         Fruit banana = new Banana();
         Fruit watermelon = new Watermelon();
+        
+        Fruit[] fruitArr = {galaApple, grannyApple, banana, watermelon, mango, orange};
+        
         
         Inventory fruitInv = new Inventory();
     
@@ -55,8 +59,8 @@ public class CZYLFG_PDC_Project {
      
             System.out.println("What do you want to do?\n");
             System.out.println("A: Check our inventory levels!");
-            System.out.println("B: Importing Status");
-            System.out.println("C: Outgoing Orders");
+            System.out.println("B: Pending Orders");
+            System.out.println("C: Create Order");
             System.out.println("D: Exit");
 
             Scanner scan = new Scanner(System.in);
@@ -65,7 +69,14 @@ public class CZYLFG_PDC_Project {
 
             switch (Character.toLowerCase(menuInput)) {
                 case 'a':
-
+                    
+                    for(int i = 0; i < 6; i++)
+                    {
+                        System.out.println("Name: "+fruitArr[i].getFruitName()+"\n"
+                                            +"Quantity: "+fruitArr[i].getInventoryNum()+"\n"
+                                            +"Fruit ID: "+fruitArr[i].getFruitID()+"\n");
+                        
+                    }
                     break;
 
                 case 'b':

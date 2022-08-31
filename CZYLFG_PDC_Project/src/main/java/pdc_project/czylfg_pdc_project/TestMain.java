@@ -68,6 +68,16 @@ public class TestMain {
 //            System.out.println("Error reading from file ");
 //
 //        }
+
+        Inventory fruitInv = new Inventory();
+        HashMap<Integer, Integer> inv = fruitInv.readInventory();
+        
+        for (Integer id: inv.keySet()) 
+        {
+            String key = id.toString();
+            String value = inv.get(id).toString();
+            System.out.println(key + " " + value);
+        }
     }
 }
 

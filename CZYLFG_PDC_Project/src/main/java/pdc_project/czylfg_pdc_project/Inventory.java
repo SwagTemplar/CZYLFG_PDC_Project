@@ -1,7 +1,9 @@
 package pdc_project.czylfg_pdc_project;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -13,7 +15,7 @@ import java.util.HashMap;
  */
 public class Inventory {
     
-    private HashMap<Integer, Integer> inventory;
+    private HashMap<Integer, Integer> inventory = new HashMap<>();
     
 
     public void Inventory() {
@@ -40,6 +42,8 @@ public class Inventory {
             
                this.inventory.put(fruit_id, value);
             }
+            
+            br.close();
         } 
         catch (IOException ex) 
         {
@@ -47,5 +51,21 @@ public class Inventory {
         }
         
         return this.inventory;
+    }
+    
+    public void updateInventory(HashMap<Integer, Integer> hmap)
+    {
+        BufferedWriter bw;
+        
+        try 
+        {
+          bw = new BufferedWriter(new FileWriter("./dbresources/current_inv.txt"));
+          
+          
+        } 
+        catch (IOException ex) 
+        {
+            System.err.println("IOException Error: " + ex.getMessage());
+        }
     }
 }

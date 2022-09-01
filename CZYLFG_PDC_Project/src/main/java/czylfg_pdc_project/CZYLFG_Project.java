@@ -98,7 +98,7 @@ public class CZYLFG_Project {
                     } else {
 
                         fruitList.decreaseFruitNum(id, quan);
-                        inv.replace(id, fruitList.getInvNumAtIndex(id));
+                        inv.replace(id, fruitList.getInvNumAtID(id));
                         fruitInv.updateInventory(inv);
                         orderList.writeOrder(id, quan);
                     }

@@ -28,6 +28,11 @@ public class FruitList {
     public int getInvNumAtIndex(int index) {
         return this.fruitArr[index].getInventoryNum();
     }
+    
+//    Gets Fruit inventory stock number according to the inputted id.
+    public int getInvNumAtID(int id) {
+        return this.fruitArr[id].getInventoryNum();
+    }
 
 //    Gets the Fruit name according to the inputted index.
     public String getNameAtIndex(int index) {

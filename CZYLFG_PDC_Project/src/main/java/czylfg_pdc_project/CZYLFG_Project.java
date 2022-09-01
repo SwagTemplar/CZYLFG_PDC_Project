@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 /**
  *
- * @author kisoo
+ * @author Kisoon Park 18008173 & Connor Stewart 17982915
  */
 public class CZYLFG_Project {
-    
+
     public static void main(String[] args) {
         System.out.println("Welcome to the CZYLFG inventory management system!\n");
 
@@ -71,7 +71,7 @@ public class CZYLFG_Project {
                     int quan;
 
                     System.out.println("Enter the fruit ID you want to order");
-                    
+
 //                    Handle non number inputs
                     try {
                         id = scan.nextInt();
@@ -94,7 +94,7 @@ public class CZYLFG_Project {
 
 //                    Handle stock availability
                     if (fruitList.checkAvailability(id, quan) == false) {
-                        System.out.println("Not Enough Stock Available");
+                        System.out.println("Not Enough Stock Available\n");
                     } else {
 
                         fruitList.decreaseFruitNum(id, quan);

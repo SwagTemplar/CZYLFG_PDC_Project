@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author kisoo
+ * @author Kisoon Park 18008173 & Connor Stewart 17982915
  */
 public class FruitList {
 //    Create fruit objects. Used to populate the fruit array.
@@ -28,10 +28,10 @@ public class FruitList {
     public int getInvNumAtIndex(int index) {
         return this.fruitArr[index].getInventoryNum();
     }
-    
+
 //    Gets Fruit inventory stock number according to the inputted id.
     public int getInvNumAtID(int id) {
-        return this.fruitArr[id].getInventoryNum();
+        return this.fruitArr[id - 1].getInventoryNum();
     }
 
 //    Gets the Fruit name according to the inputted index.

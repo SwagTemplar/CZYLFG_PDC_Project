@@ -23,7 +23,7 @@ public class OrderList {
     public void writeOrder(int id, int quan) {
 
         try {
-            PrintStream printOut = new PrintStream(new FileOutputStream("./dbresources/current_orders.txt", true), true);
+            PrintStream printOut = new PrintStream(new FileOutputStream("./newdb/current_orders.txt", true), true);
             String s = this.orderID + " " + String.valueOf(id) + " " + String.valueOf(quan);
             printOut.println(s);
             printOut.close();
@@ -39,7 +39,7 @@ public class OrderList {
         BufferedReader br;
 
         try {
-            br = new BufferedReader(new FileReader("./dbresources/current_orders.txt"));
+            br = new BufferedReader(new FileReader("./newdb/current_orders.txt"));
             String line;
             int thisOrdersID;
             int newArr[];

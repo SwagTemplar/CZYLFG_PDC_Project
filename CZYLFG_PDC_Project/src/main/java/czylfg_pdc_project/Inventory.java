@@ -37,7 +37,7 @@ public class Inventory {
         
         try 
         {
-            br = new BufferedReader(new FileReader("./dbresources/current_inv.txt"));
+            br = new BufferedReader(new FileReader("./newdb/current_inv.txt"));
             String line = "";
             int fruit_id;
             int value;
@@ -62,13 +62,13 @@ public class Inventory {
 //    Updates the inventory text file
     public void updateInventory(HashMap<Integer, Integer> hmap)
     {
-        File currentFile = new File("./dbresources/current_inv.txt");
+        File currentFile = new File("./newdb/current_inv.txt");
         currentFile.delete();
         
         BufferedWriter bw;
         
         try {
-           bw = new BufferedWriter(new FileWriter("./dbresources/current_inv.txt"));
+           bw = new BufferedWriter(new FileWriter("./newdb/current_inv.txt"));
            
            for (Map.Entry<Integer, Integer> entry : hmap.entrySet()) {
  
